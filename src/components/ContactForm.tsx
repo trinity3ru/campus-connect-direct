@@ -5,13 +5,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Phone, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
+
+type ContactMethod = "phone" | "telegram";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [agreed, setAgreed] = useState(false);
+  const [contactMethod, setContactMethod] = useState<ContactMethod>("phone");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -83,28 +86,65 @@ const ContactForm = () => {
             onSubmit={handleSubmit}
             className="bg-card rounded-2xl p-8 shadow-[var(--card-shadow)] border border-border/50"
           >
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div className="space-y-2">
-                <Label htmlFor="name">Ваше имя *</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  placeholder="Иван Иванов"
-                  required
-                  className="bg-background"
-                />
+            <div className="space-y-2 mb-6">
+              <Label htmlFor="name">Ваше имя *</Label>
+              <Input
+                id="name"
+                name="name"
+                placeholder="Иван Иванов"
+                required
+                className="bg-background"
+              />
+            </div>
+
+            {/* Contact Method Toggle */}
+            <div className="mb-6">
+              <Label className="mb-3 block">Способ связи *</Label>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setContactMethod("phone")}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border transition-all ${
+                    contactMethod === "phone"
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "border-border bg-background text-muted-foreground hover:border-primary/50"
+                  }`}
+                >
+                  <Phone className="w-4 h-4" />
+                  Телефон
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setContactMethod("telegram")}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border transition-all ${
+                    contactMethod === "telegram"
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "border-border bg-background text-muted-foreground hover:border-primary/50"
+                  }`}
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Telegram
+                </button>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="phone">Телефон *</Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="+7 (___) ___-__-__"
-                  required
-                  className="bg-background"
-                />
-              </div>
+            </div>
+
+            {/* Contact Input */}
+            <div className="space-y-2 mb-6">
+              <Label htmlFor="contact">
+                {contactMethod === "phone" ? "Телефон *" : "Telegram *"}
+              </Label>
+              <Input
+                id="contact"
+                name="contact"
+                type={contactMethod === "phone" ? "tel" : "text"}
+                placeholder={
+                  contactMethod === "phone"
+                    ? "+7 (___) ___-__-__"
+                    : "@username"
+                }
+                required
+                className="bg-background"
+              />
             </div>
 
             <div className="space-y-2 mb-6">
@@ -139,8 +179,14 @@ const ContactForm = () => {
                 htmlFor="agreement"
                 className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
               >
-                Я согласен на обработку персональных данных и принимаю условия
-                политики конфиденциальности
+                Я согласен на обработку персональных данных и принимаю условия{" "}
+                <a
+                  href="/privacy"
+                  className="text-primary underline hover:no-underline"
+                  target="_blank"
+                >
+                  политики конфиденциальности
+                </a>
               </Label>
             </div>
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Menu, X } from "lucide-react";
+import RequestQuoteDialog from "./RequestQuoteDialog";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,7 +52,7 @@ const Header = () => {
                 isScrolled ? "text-foreground" : "text-white"
               }`}
             >
-              Директ для ВУЗов
+              Яндекс Директ для образования
             </span>
           </a>
 
@@ -73,13 +74,14 @@ const Header = () => {
             >
               Кейсы
             </a>
-            <Button
-              onClick={scrollToForm}
-              size="sm"
-              variant={isScrolled ? "default" : "secondary"}
-            >
-              Оставить заявку
-            </Button>
+            <RequestQuoteDialog>
+              <Button
+                size="sm"
+                variant={isScrolled ? "default" : "secondary"}
+              >
+                Запросить КП
+              </Button>
+            </RequestQuoteDialog>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -118,9 +120,11 @@ const Header = () => {
               >
                 Кейсы
               </a>
-              <Button onClick={scrollToForm} className="mt-2">
-                Оставить заявку
-              </Button>
+              <RequestQuoteDialog>
+                <Button className="mt-2">
+                  Запросить КП
+                </Button>
+              </RequestQuoteDialog>
             </nav>
           </motion.div>
         )}
