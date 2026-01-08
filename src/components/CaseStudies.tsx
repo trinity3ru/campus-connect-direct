@@ -3,6 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, BookOpen, Stethoscope, ChevronDown, MessageCircle, Briefcase } from "lucide-react";
 
+import caseStudyImage1 from "@/assets/case-study-1.jpg";
+import caseStudyImage2 from "@/assets/case-study-2.jpg";
+import caseStudyImage3 from "@/assets/case-study-3.jpg";
+import caseStudyImage4 from "@/assets/case-study-4.jpg";
+
 interface CaseStudy {
   id: number;
   title: string;
@@ -12,6 +17,7 @@ interface CaseStudy {
   fullContent: string;
   results: string[];
   conclusions: string;
+  image: string;
 }
 
 const caseStudies: CaseStudy[] = [
@@ -42,6 +48,7 @@ const caseStudies: CaseStudy[] = [
       "Целевой трафик вырос почти вдвое",
     ],
     conclusions: "Чёткая сегментация (студенты / родители) и разделение кампаний по направлениям позволяют контролировать стоимость клика и повысить вовлечённость. Информационные кампании помогают захватывать аудиторию на раннем этапе.",
+    image: caseStudyImage1,
   },
   {
     id: 2,
@@ -69,6 +76,7 @@ const caseStudies: CaseStudy[] = [
       "Встроенная аналитика показывает интересы аудитории",
     ],
     conclusions: "Квизы – рабочий способ вовлечь аудиторию, которой скучны стандартные формы. Они позволяют выявлять интересы посетителей и персонализировать предложение. Даже небольшой интерактив способен увеличить количество заявок и снизить CPL без привлечения большого бюджета.",
+    image: caseStudyImage2,
   },
   {
     id: 3,
@@ -97,6 +105,7 @@ const caseStudies: CaseStudy[] = [
       "Заявки продолжались после остановки рекламы",
     ],
     conclusions: "Яндекс.Директ эффективен даже для узкоспециализированных образовательных программ с длинным циклом принятия решения. Ретаргетинг особенно важен для такой аудитории.",
+    image: caseStudyImage3,
   },
   {
     id: 4,
@@ -125,6 +134,7 @@ const caseStudies: CaseStudy[] = [
       "Данные для улучшения следующих кампаний",
     ],
     conclusions: "Комплексный подход с интеграцией всех инструментов Яндекс.Директ и аналитики даёт синергетический эффект и позволяет масштабировать успешные решения.",
+    image: caseStudyImage4,
   },
 ];
 
@@ -224,10 +234,14 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
                   </div>
                 </div>
 
-                {/* Sidebar with Image placeholder and CTAs */}
+                {/* Sidebar with Image and CTAs */}
                 <div className="space-y-4">
-                  <div className="aspect-video bg-muted rounded-xl flex items-center justify-center">
-                    <Icon className="w-16 h-16 text-muted-foreground/30" />
+                  <div className="aspect-video bg-muted rounded-xl overflow-hidden">
+                    <img 
+                      src={caseStudy.image} 
+                      alt={caseStudy.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
 
                   <div className="space-y-3">
