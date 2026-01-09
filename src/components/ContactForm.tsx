@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Send, CheckCircle, Phone, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
+import { sendContactForm } from "@/lib/telegram";
 
 type ContactMethod = "phone" | "telegram";
 
@@ -18,6 +19,8 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Проверка согласия на обработку данных
     if (!agreed) {
       toast.error("Пожалуйста, согласитесь с условиями обработки данных");
       return;
@@ -25,12 +28,34 @@ const ContactForm = () => {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Получаем данные из формы
+      const formData = new FormData(e.currentTarget);
+      const data = {
+        name: formData.get("name") as string,
+        contactMethod: contactMethod,
+        contact: formData.get("contact") as string,
+        email: formData.get("email") as string || undefined,
+        message: formData.get("message") as string || undefined,
+      };
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success("Ваш вопрос отправлен! Мы свяжемся с вами в ближайшее время.");
+      // Отправляем данные в Telegram
+      await sendContactForm(data);
+
+      // Успешная отправка
+      setIsSubmitted(true);
+      toast.success("Ваш вопрос отправлен! Мы свяжемся с вами в ближайшее время.");
+    } catch (error) {
+      // Обработка ошибок
+      console.error("Ошибка отправки формы:", error);
+      toast.error(
+        error instanceof Error 
+          ? error.message 
+          : "Произошла ошибка при отправке. Попробуйте позже или свяжитесь с нами напрямую."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {

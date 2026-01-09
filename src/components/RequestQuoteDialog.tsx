@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import { sendQuoteForm } from "@/lib/telegram";
 
 interface RequestQuoteDialogProps {
   children: React.ReactNode;
@@ -27,16 +28,41 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Проверка согласия на обработку данных
     if (!agreed) {
       toast.error("Пожалуйста, согласитесь с условиями");
       return;
     }
 
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
+
+    try {
+      // Получаем данные из формы
+      const formData = new FormData(e.currentTarget);
+      const data = {
+        email: formData.get("email") as string,
+        website: formData.get("website") as string || undefined,
+        task: formData.get("task") as string || undefined,
+      };
+
+      // Отправляем данные в Telegram
+      await sendQuoteForm(data);
+
+      // Успешная отправка
+      setIsSubmitted(true);
+      toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
+    } catch (error) {
+      // Обработка ошибок
+      console.error("Ошибка отправки формы:", error);
+      toast.error(
+        error instanceof Error 
+          ? error.message 
+          : "Произошла ошибка при отправке. Попробуйте позже."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleOpenChange = (open: boolean) => {
