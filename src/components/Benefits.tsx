@@ -23,7 +23,7 @@ const benefits = [
 
 const Benefits = () => {
   return (
-    <section className="py-20 bg-muted/50">
+    <section className="py-20 bg-card/50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ const Benefits = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="relative"
             >
-              <div className="text-7xl font-bold text-primary/10 mb-4">
+              <div className="text-7xl font-bold text-gold/15 mb-4">
                 {benefit.number}
               </div>
               <h3 className="text-xl font-bold text-foreground mb-4 -mt-8">

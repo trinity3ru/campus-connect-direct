@@ -82,8 +82,8 @@ const HowWeWork = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: stageIndex * 0.1 }}
             >
-              <h3 className="text-xl font-bold text-primary mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
+              <h3 className="text-xl font-bold text-gold mb-6 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-gold-gradient text-primary-foreground flex items-center justify-center text-sm font-bold">
                   {stageIndex + 1}
                 </span>
                 {stage.title}
@@ -92,10 +92,10 @@ const HowWeWork = () => {
                 {stage.steps.map((step, stepIndex) => (
                   <div
                     key={stepIndex}
-                    className="p-6 bg-card rounded-xl border border-border/50 hover:border-primary/30 transition-colors"
+                    className="p-6 bg-card rounded-xl border border-border hover:border-gold/30 transition-colors"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <step.icon className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
+                      <step.icon className="w-6 h-6 text-gold" />
                     </div>
                     <h4 className="text-lg font-semibold text-card-foreground mb-2">
                       {step.title}

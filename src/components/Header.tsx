@@ -28,7 +28,7 @@ const Header = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border/50"
+          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
           : "bg-transparent"
       }`}
     >
@@ -36,22 +36,10 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3">
-            <div
-              className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
-                isScrolled ? "bg-primary/10" : "bg-white/10"
-              }`}
-            >
-              <GraduationCap
-                className={`w-5 h-5 transition-colors ${
-                  isScrolled ? "text-primary" : "text-gold"
-                }`}
-              />
+            <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
+              <GraduationCap className="w-5 h-5 text-gold" />
             </div>
-            <span
-              className={`font-semibold text-lg transition-colors hidden sm:block ${
-                isScrolled ? "text-foreground" : "text-white"
-              }`}
-            >
+            <span className="font-semibold text-lg text-foreground hidden sm:block">
               Яндекс Директ для образования
             </span>
           </a>
@@ -60,25 +48,18 @@ const Header = () => {
           <nav className="hidden md:flex items-center gap-8">
             <a
               href="#how-we-work"
-              className={`text-sm font-medium transition-colors hover:opacity-80 ${
-                isScrolled ? "text-foreground" : "text-white/90"
-              }`}
+              className="text-sm font-medium text-muted-foreground hover:text-gold transition-colors"
             >
               Как мы работаем
             </a>
             <a
               href="#cases"
-              className={`text-sm font-medium transition-colors hover:opacity-80 ${
-                isScrolled ? "text-foreground" : "text-white/90"
-              }`}
+              className="text-sm font-medium text-muted-foreground hover:text-gold transition-colors"
             >
               Кейсы
             </a>
             <RequestQuoteDialog>
-              <Button
-                size="sm"
-                variant={isScrolled ? "default" : "secondary"}
-              >
+              <Button className="bg-gold-gradient hover:shadow-gold text-primary-foreground">
                 Запросить КП
               </Button>
             </RequestQuoteDialog>
@@ -90,9 +71,9 @@ const Header = () => {
             className="md:hidden p-2"
           >
             {isMobileMenuOpen ? (
-              <X className={isScrolled ? "text-foreground" : "text-white"} />
+              <X className="text-foreground" />
             ) : (
-              <Menu className={isScrolled ? "text-foreground" : "text-white"} />
+              <Menu className="text-foreground" />
             )}
           </button>
         </div>
@@ -103,25 +84,25 @@ const Header = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden py-4 border-t border-border/50"
+            className="md:hidden py-4 border-t border-border"
           >
             <nav className="flex flex-col gap-4">
               <a
                 href="#how-we-work"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-foreground font-medium py-2"
+                className="text-foreground font-medium py-2 hover:text-gold transition-colors"
               >
                 Как мы работаем
               </a>
               <a
                 href="#cases"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-foreground font-medium py-2"
+                className="text-foreground font-medium py-2 hover:text-gold transition-colors"
               >
                 Кейсы
               </a>
               <RequestQuoteDialog>
-                <Button className="mt-2">
+                <Button className="mt-2 bg-gold-gradient hover:shadow-gold text-primary-foreground">
                   Запросить КП
                 </Button>
               </RequestQuoteDialog>
