@@ -57,7 +57,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        gold: "hsl(var(--gold-accent))",
+        gold: {
+          DEFAULT: "hsl(var(--gold-accent))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
+        },
         "academic-blue": "hsl(var(--academic-blue))",
         "academic-dark": "hsl(var(--academic-dark))",
       },

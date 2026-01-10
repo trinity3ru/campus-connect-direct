@@ -51,10 +51,10 @@ const WhyUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group p-6 bg-card rounded-2xl shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-300 border border-border/50"
+              className="group p-6 bg-card rounded-2xl shadow-[var(--card-shadow)] hover:shadow-gold transition-all duration-300 border border-border hover:border-gold/30"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
+                <feature.icon className="w-7 h-7 text-gold" />
               </div>
               <h3 className="text-lg font-semibold text-card-foreground mb-2 leading-snug">
                 {feature.title}

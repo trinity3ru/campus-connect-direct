@@ -60,15 +60,15 @@ const ContactForm = () => {
 
   if (isSubmitted) {
     return (
-      <section id="contact-form" className="py-20 bg-muted/30">
+      <section id="contact-form" className="py-20 bg-card/50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="max-w-2xl mx-auto text-center"
           >
-            <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-10 h-10 text-green-600" />
+            <div className="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-10 h-10 text-gold" />
             </div>
             <h2 className="text-3xl font-bold text-foreground mb-4">
               Спасибо за обращение!
@@ -83,7 +83,7 @@ const ContactForm = () => {
   }
 
   return (
-    <section id="contact-form" className="py-20 bg-muted/30">
+    <section id="contact-form" className="py-20 bg-card/50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -109,7 +109,7 @@ const ContactForm = () => {
         >
           <form
             onSubmit={handleSubmit}
-            className="bg-card rounded-2xl p-8 shadow-[var(--card-shadow)] border border-border/50"
+            className="bg-card rounded-2xl p-8 shadow-[var(--card-shadow)] border border-border"
           >
             <div className="space-y-2 mb-6">
               <Label htmlFor="name">Ваше имя *</Label>
@@ -118,7 +118,7 @@ const ContactForm = () => {
                 name="name"
                 placeholder="Иван Иванов"
                 required
-                className="bg-background"
+                className="bg-background border-border"
               />
             </div>
 
@@ -131,8 +131,8 @@ const ContactForm = () => {
                   onClick={() => setContactMethod("phone")}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border transition-all ${
                     contactMethod === "phone"
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border bg-background text-muted-foreground hover:border-primary/50"
+                      ? "border-gold bg-gold/10 text-gold"
+                      : "border-border bg-background text-muted-foreground hover:border-gold/50"
                   }`}
                 >
                   <Phone className="w-4 h-4" />
@@ -143,8 +143,8 @@ const ContactForm = () => {
                   onClick={() => setContactMethod("telegram")}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border transition-all ${
                     contactMethod === "telegram"
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border bg-background text-muted-foreground hover:border-primary/50"
+                      ? "border-gold bg-gold/10 text-gold"
+                      : "border-border bg-background text-muted-foreground hover:border-gold/50"
                   }`}
                 >
                   <MessageCircle className="w-4 h-4" />
@@ -168,7 +168,7 @@ const ContactForm = () => {
                     : "@username"
                 }
                 required
-                className="bg-background"
+                className="bg-background border-border"
               />
             </div>
 
@@ -179,7 +179,7 @@ const ContactForm = () => {
                 name="email"
                 type="email"
                 placeholder="example@university.ru"
-                className="bg-background"
+                className="bg-background border-border"
               />
             </div>
 
@@ -190,7 +190,7 @@ const ContactForm = () => {
                 name="message"
                 placeholder="Опишите вашу задачу или вопрос..."
                 rows={4}
-                className="bg-background resize-none"
+                className="bg-background border-border resize-none"
               />
             </div>
 
@@ -199,6 +199,7 @@ const ContactForm = () => {
                 id="agreement"
                 checked={agreed}
                 onCheckedChange={(checked) => setAgreed(checked as boolean)}
+                className="border-border data-[state=checked]:bg-gold data-[state=checked]:border-gold"
               />
               <Label
                 htmlFor="agreement"
@@ -207,7 +208,7 @@ const ContactForm = () => {
                 Я согласен на обработку персональных данных и принимаю условия{" "}
                 <a
                   href="/privacy"
-                  className="text-primary underline hover:no-underline"
+                  className="text-gold underline hover:no-underline"
                   target="_blank"
                 >
                   политики конфиденциальности
@@ -218,7 +219,7 @@ const ContactForm = () => {
             <Button
               type="submit"
               size="lg"
-              className="w-full text-lg py-6"
+              className="w-full text-lg py-6 bg-gold-gradient hover:shadow-gold-lg text-primary-foreground"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
