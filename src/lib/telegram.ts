@@ -10,8 +10,15 @@
 
 // ВАЖНО: Замените эти значения на свои!
 // Или настройте через переменные окружения в Vite
-const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || "YOUR_BOT_TOKEN_HERE";
-const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID || "YOUR_CHAT_ID_HERE";
+const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || "";
+const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID || "";
+
+// Диагностика (удалите после проверки)
+console.log("🔍 Диагностика Telegram:");
+console.log("Token установлен:", !!TELEGRAM_BOT_TOKEN);
+console.log("Chat ID установлен:", !!TELEGRAM_CHAT_ID);
+console.log("Token первые 10 символов:", TELEGRAM_BOT_TOKEN.substring(0, 10) + "...");
+console.log("Chat ID:", TELEGRAM_CHAT_ID);
 
 /**
  * Интерфейс для данных контактной формы
@@ -77,9 +84,12 @@ function formatQuoteMessage(data: QuoteFormData): string {
  */
 async function sendToTelegram(message: string): Promise<boolean> {
   // Проверка настроек
-  if (TELEGRAM_BOT_TOKEN === "YOUR_BOT_TOKEN_HERE" || TELEGRAM_CHAT_ID === "YOUR_CHAT_ID_HERE") {
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
     console.error("❌ Telegram не настроен! Укажите TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID");
     console.log("📝 Данные формы:", message);
+    console.log("🔧 Текущие значения:");
+    console.log("   - Token:", TELEGRAM_BOT_TOKEN ? "Установлен" : "НЕ установлен");
+    console.log("   - Chat ID:", TELEGRAM_CHAT_ID ? "Установлен" : "НЕ установлен");
     throw new Error("Telegram не настроен. Проверьте консоль для инструкций.");
   }
 
