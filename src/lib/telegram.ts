@@ -10,8 +10,8 @@
 
 // ВАЖНО: Замените эти значения на свои!
 // Или настройте через переменные окружения в Vite
-const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || "";
-const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID || "";
+const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || "7325398202:AAGIlW2xUS3_xQCBBZgCKokJHDHfbmfEZQ";
+const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID || "72182936";
 
 // Диагностика (удалите после проверки)
 console.log("🔍 Диагностика Telegram:");
