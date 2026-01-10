@@ -10,7 +10,7 @@
 
 // ВАЖНО: Замените эти значения на свои!
 // Или настройте через переменные окружения в Vite
-const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || "7325398202:AAGIlW2xUS3_xQCBBZgCKokJHDHfbmfEZQ";
+const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || "8447702972:AAEMRX9on4dof1235AbQjlzN1D1U3iS0XrM";
 const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID || "72182936";
 
 // Диагностика (удалите после проверки)
