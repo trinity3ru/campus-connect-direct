@@ -79,15 +79,15 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="sm:max-w-lg bg-card border-border">
         {isSubmitted ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-8"
           >
-            <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-              <CheckCircle className="w-8 h-8 text-green-600" />
+            <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="w-8 h-8 text-gold" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">
               Спасибо за заявку!
@@ -99,7 +99,7 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="text-xl font-bold">
+              <DialogTitle className="text-xl font-bold text-foreground">
                 Запросить коммерческое предложение
               </DialogTitle>
               <p className="text-muted-foreground text-sm mt-2">
@@ -117,7 +117,7 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
                   type="email"
                   placeholder="example@university.ru"
                   required
-                  className="bg-background"
+                  className="bg-background border-border"
                 />
               </div>
 
@@ -128,7 +128,7 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
                   name="website"
                   type="url"
                   placeholder="https://university.ru"
-                  className="bg-background"
+                  className="bg-background border-border"
                 />
               </div>
 
@@ -139,7 +139,7 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
                   name="task"
                   placeholder="Опишите вашу задачу..."
                   rows={4}
-                  className="bg-background resize-none"
+                  className="bg-background border-border resize-none"
                 />
               </div>
 
@@ -148,6 +148,7 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
                   id="quote-agreement"
                   checked={agreed}
                   onCheckedChange={(checked) => setAgreed(checked as boolean)}
+                  className="border-border data-[state=checked]:bg-gold data-[state=checked]:border-gold"
                 />
                 <Label
                   htmlFor="quote-agreement"
@@ -156,7 +157,7 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
                   Отправляя данную форму, я принимаю условия{" "}
                   <a
                     href="/privacy"
-                    className="text-primary underline hover:no-underline"
+                    className="text-gold underline hover:no-underline"
                     target="_blank"
                   >
                     пользовательского соглашения
@@ -164,7 +165,7 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
                   и даю согласие на{" "}
                   <a
                     href="/privacy"
-                    className="text-primary underline hover:no-underline"
+                    className="text-gold underline hover:no-underline"
                     target="_blank"
                   >
                     обработку персональных данных
@@ -175,7 +176,7 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full bg-gold-gradient hover:shadow-gold-lg text-primary-foreground"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Отправка..." : "Отправить"}

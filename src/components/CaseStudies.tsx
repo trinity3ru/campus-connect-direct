@@ -152,17 +152,17 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="bg-card rounded-2xl border border-border/50 overflow-hidden shadow-[var(--card-shadow)]"
+      className="bg-card rounded-2xl border border-border overflow-hidden shadow-[var(--card-shadow)] hover:border-gold/30 transition-colors"
     >
       {/* Header */}
       <div
-        className="p-6 cursor-pointer hover:bg-muted/50 transition-colors"
+        className="p-6 cursor-pointer hover:bg-muted/30 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <Icon className="w-7 h-7 text-primary" />
+            <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <Icon className="w-7 h-7 text-gold" />
             </div>
             <div>
               <div className="flex items-center gap-3 mb-1">
@@ -179,7 +179,7 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm" className="hidden sm:flex">
+            <Button variant="outline" size="sm" className="hidden sm:flex border-gold/30 text-gold hover:bg-gold/10 hover:border-gold/50">
               Подробнее
             </Button>
             <motion.div
@@ -202,7 +202,7 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-6 pt-2 border-t border-border/50">
+            <div className="px-6 pb-6 pt-2 border-t border-border">
               <div className="grid lg:grid-cols-3 gap-6">
                 {/* Main Content */}
                 <div className="lg:col-span-2 space-y-4">
@@ -213,7 +213,7 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
                   </div>
 
                   {/* Results */}
-                  <div className="bg-muted/50 rounded-xl p-4">
+                  <div className="bg-muted/50 rounded-xl p-4 border border-border">
                     <h4 className="font-semibold text-foreground mb-3">Результаты:</h4>
                     <ul className="space-y-2">
                       {caseStudy.results.map((result, index) => (
@@ -226,8 +226,8 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
                   </div>
 
                   {/* Conclusions */}
-                  <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
-                    <h4 className="font-semibold text-primary mb-2">Выводы:</h4>
+                  <div className="bg-gold/5 rounded-xl p-4 border border-gold/20">
+                    <h4 className="font-semibold text-gold mb-2">Выводы:</h4>
                     <p className="text-sm text-muted-foreground">
                       {caseStudy.conclusions}
                     </p>
@@ -247,8 +247,7 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
                   <div className="space-y-3">
                     <Button
                       onClick={scrollToForm}
-                      className="w-full"
-                      variant="default"
+                      className="w-full bg-gold-gradient hover:shadow-gold-lg text-primary-foreground"
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
                       Задать вопрос
@@ -274,7 +273,7 @@ const CaseCard = ({ caseStudy }: { caseStudy: CaseStudy }) => {
 
 const CaseStudies = () => {
   return (
-    <section id="cases" className="py-20 bg-muted/30">
+    <section id="cases" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
