@@ -49,9 +49,12 @@ const RequestQuoteDialog = ({ children }: RequestQuoteDialogProps) => {
       // Отправляем данные в Telegram
       await sendQuoteForm(data);
 
-      // Успешная отправка
-      setIsSubmitted(true);
-      toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
+      // Успешная отправка - закрываем диалог и перенаправляем
+      toast.success("Заявка отправлена! Перенаправляем...");
+      setIsOpen(false);
+      setTimeout(() => {
+        window.location.href = "/spasibo";
+      }, 1000);
     } catch (error) {
       // Обработка ошибок
       console.error("Ошибка отправки формы:", error);

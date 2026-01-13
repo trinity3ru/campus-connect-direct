@@ -42,9 +42,11 @@ const ContactForm = () => {
       // Отправляем данные в Telegram
       await sendContactForm(data);
 
-      // Успешная отправка
-      setIsSubmitted(true);
-      toast.success("Ваш вопрос отправлен! Мы свяжемся с вами в ближайшее время.");
+      // Успешная отправка - перенаправляем на страницу благодарности
+      toast.success("Ваш вопрос отправлен! Перенаправляем...");
+      setTimeout(() => {
+        window.location.href = "/spasibo";
+      }, 1000);
     } catch (error) {
       // Обработка ошибок
       console.error("Ошибка отправки формы:", error);
