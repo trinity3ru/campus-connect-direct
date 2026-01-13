@@ -24,11 +24,19 @@ const Footer = () => {
             <a href="#contact-form" className="hover:text-gold transition-colors">
               Контакты
             </a>
+            <a href="/privacy" className="hover:text-gold transition-colors">
+              Политика конфиденциальности
+            </a>
           </nav>
 
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Все права защищены
-          </p>
+          <div className="text-center">
+            <p className="text-muted-foreground text-sm mb-1">
+              © {new Date().getFullYear()} ИП Куренков Алексей Владимирович
+            </p>
+            <p className="text-muted-foreground text-xs">
+              ИНН: 632113610888
+            </p>
+          </div>
         </div>
       </div>
     </footer>
