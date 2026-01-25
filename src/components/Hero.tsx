@@ -50,7 +50,7 @@ const Hero = () => {
           >
             <li className="flex items-start gap-3 text-muted-foreground text-lg">
               <TrendingUp className="w-6 h-6 text-gold flex-shrink-0 mt-0.5" />
-              Увеличим число обращений и заявок уже в течение первых дней
+              Увеличим число поступающих уже в первый месяц работы
             </li>
             <li className="flex items-start gap-3 text-muted-foreground text-lg">
               <Users className="w-6 h-6 text-gold flex-shrink-0 mt-0.5" />
