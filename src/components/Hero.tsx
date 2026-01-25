@@ -38,8 +38,8 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-8"
           >
-            Настройка и ведение контекстной рекламы{" "}
-            <span className="text-gold-gradient">ВУЗа</span>
+            онтекстная и таргетированная реклама для ВУЗов {" "}
+            <span className="text-gold-gradient">Яндекс.Директ | ВК</span>
           </motion.h1>
 
           <motion.ul
