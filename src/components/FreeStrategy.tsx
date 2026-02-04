@@ -19,7 +19,7 @@ const FreeStrategy = () => {
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-            Готовы привлекать новых студентов?
+            Готовы привлекать новых абитуриентов?
           </h2>
           <p className="text-primary-foreground/80 text-lg md:text-xl mb-10">
             Оставьте заявку, и мы свяжемся с вами в течение часа, чтобы обсудить стратегию продвижения вашего образовательного учреждения.
