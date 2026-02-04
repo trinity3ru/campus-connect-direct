@@ -8,6 +8,7 @@ import CaseStudies from "@/components/CaseStudies";
 import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import LogoCarousel from "@/components/LogoCarousel";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <LogoCarousel />
         <CaseStudies />
         <WhyUs />
         <Benefits />
