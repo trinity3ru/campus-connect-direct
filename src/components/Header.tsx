@@ -29,11 +29,11 @@ const Header = () => {
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-6">
               <a 
-                href="tel:+79272080291" 
+                href="tel:+79061296068" 
                 className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span>+7 (927) 208-02-91</span>
+                <span>8 (906) 129-60-68</span>
               </a>
               <a 
                 href="mailto:volgainfo@gmail.com" 
