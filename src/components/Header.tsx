@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Menu, X } from "lucide-react";
+import { GraduationCap, Menu, X, Phone, Mail } from "lucide-react";
 import RequestQuoteDialog from "./RequestQuoteDialog";
 
 const Header = () => {
@@ -22,17 +22,42 @@ const Header = () => {
   };
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4">
+    <>
+      {/* Top Contact Bar */}
+      <div className="bg-card/80 border-b border-border py-2 hidden sm:block">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center gap-6">
+              <a 
+                href="tel:+79272080291" 
+                className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>+7 (927) 208-02-91</span>
+              </a>
+              <a 
+                href="mailto:volgainfo@gmail.com" 
+                className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                <span>volgainfo@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "top-0 bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
+            : "top-0 sm:top-10 bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3">
@@ -111,6 +136,7 @@ const Header = () => {
         )}
       </div>
     </motion.header>
+    </>
   );
 };
 
