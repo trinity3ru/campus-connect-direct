@@ -1,14 +1,9 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Gift } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 const FreeStrategy = () => {
-  const scrollToForm = () => {
-    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="py-16 bg-gold-gradient relative overflow-hidden">
+    <section className="py-20 bg-gold-gradient relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
@@ -21,29 +16,38 @@ const FreeStrategy = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col md:flex-row items-center justify-between gap-8"
+          className="text-center max-w-3xl mx-auto"
         >
-          <div className="flex items-center gap-6">
-            <div className="w-16 h-16 rounded-2xl bg-black/10 flex items-center justify-center flex-shrink-0">
-              <Gift className="w-8 h-8 text-primary-foreground" />
-            </div>
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-2">
-                Бесплатная разработка стратегии
-              </h2>
-              <p className="text-primary-foreground/80 text-lg">
-                Хотите понять, подходит ли вам продвижение через Яндекс.Директ? Оставьте заявку — мы перезвоним.
-              </p>
-            </div>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
+            Готовы привлекать новых студентов?
+          </h2>
+          <p className="text-primary-foreground/80 text-lg md:text-xl mb-10">
+            Оставьте заявку, и мы свяжемся с вами в течение часа, чтобы обсудить стратегию продвижения вашего образовательного учреждения.
+          </p>
 
-          <Button
-            size="lg"
-            onClick={scrollToForm}
-            className="text-lg px-8 py-6 font-semibold bg-background text-foreground hover:bg-background/90 shadow-lg hover:shadow-xl transition-all whitespace-nowrap"
-          >
-            Связаться с нами
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="tel:+79061296068"
+              className="flex items-center gap-3 bg-background text-foreground px-8 py-4 rounded-xl font-semibold hover:bg-background/90 shadow-lg hover:shadow-xl transition-all"
+            >
+              <Phone className="w-5 h-5" />
+              <div className="text-left">
+                <div className="text-xs text-muted-foreground">Телефон</div>
+                <div>8 (906) 129-60-68</div>
+              </div>
+            </a>
+
+            <a
+              href="mailto:volgainfo@gmail.com"
+              className="flex items-center gap-3 bg-background text-foreground px-8 py-4 rounded-xl font-semibold hover:bg-background/90 shadow-lg hover:shadow-xl transition-all"
+            >
+              <Mail className="w-5 h-5" />
+              <div className="text-left">
+                <div className="text-xs text-muted-foreground">Email</div>
+                <div>volgainfo@gmail.com</div>
+              </div>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
