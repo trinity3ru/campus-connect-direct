@@ -1,15 +1,15 @@
-import spiLogo from "@/assets/logos/spi-logo.webp";
+import spiLogo from "@/assets/logos/spi-logo.jpg";
 import endosurLogo from "@/assets/logos/endosur-logo.svg";
-import politechLogo from "@/assets/logos/politech-logo.png";
-import vavtLogo from "@/assets/logos/vavt-logo.jpeg";
-import bricsLogo from "@/assets/logos/brics-logo.png";
+import politechLogo from "@/assets/logos/politech-logo.jpg";
+import bricsLogo from "@/assets/logos/brics-logo.jpg";
+import nativeEnglishLogo from "@/assets/logos/native-english-logo.jpg";
 
 const logos = [
   { src: spiLogo, alt: "SPI - School of Practical Investing" },
   { src: endosurLogo, alt: "Эндохирургический учебный и инновационный центр" },
   { src: politechLogo, alt: "Санкт-Петербургский политехнический университет" },
-  { src: vavtLogo, alt: "ВАВТ" },
   { src: bricsLogo, alt: "Университет БРИКС" },
+  { src: nativeEnglishLogo, alt: "Native English" },
 ];
 
 const LogoCarousel = () => {
@@ -23,7 +23,7 @@ const LogoCarousel = () => {
           Нам доверяют
         </h2>
         <p className="text-muted-foreground text-center mt-2">
-          Образовательные учреждения, с которыми мы работаем
+          Образовательные учреждения, курсы, онлайн-школы, огромный опыт работы с образованием и инфобизнесом
         </p>
       </div>
       
