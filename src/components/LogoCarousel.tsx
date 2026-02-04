@@ -42,7 +42,7 @@ const LogoCarousel = () => {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="h-12 md:h-16 w-auto max-w-[150px] md:max-w-[200px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                className="h-12 md:h-16 w-auto max-w-[150px] md:max-w-[200px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
               />
             </div>
           ))}
